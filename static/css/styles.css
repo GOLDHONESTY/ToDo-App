@@ -1,0 +1,178 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-family: monospace;
+}
+
+body{
+	background-color: #dfdfdf;
+}
+
+.task_number{
+	display: inline-block;
+	border: none;
+	padding: 1px 5px;
+	border-radius: 50%;
+	background-color: white;
+	
+}
+.task_count{
+	display: inline-block;
+	color: white;
+	margin-right: 2px;
+}
+
+.task_item{
+	display: inline-block;
+	margin-left: 10px;
+	font-size: 16px;
+}
+
+.task_item_div{
+    width: 88%;
+    padding: 9px;
+    margin: 10px auto;
+    text-align: justify;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .15), 0 2px 5px 0 rgba(0, 0, 0, .1);
+
+}
+
+.task_input{
+    margin: 10px 0 10px 0;
+    padding: 5px;
+    height: 20px;
+    outline: none;
+    width: 80%;
+    border: 3px solid #8e96ad;
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+	
+}
+.task_submit{
+	border: none;
+	padding: 5px;
+	border-radius: 0 5px 5px 0;
+	height: 35px;
+	background-color: #8e96ad;
+	border-style: none;
+	color: white;
+}
+
+
+/*signup*/
+
+.signup_input{
+	
+	margin-top: 10px;
+    width: 95%;
+    padding: 10px;
+    
+    border: 2px solid #eee;
+    border-radius: 6px;
+}
+
+.submitform{
+	width: 100%;
+    margin-top: 30px;
+    padding: 10px;
+    color: white;
+    background-color: #3e73f5;
+    border: none;
+}
+
+hr{
+	width: 10%;
+    padding: 2px;
+    background-color: rgb(62 115 245);
+}
+
+.divform{
+	background-color: white;
+	padding: 20px;
+	width: 100%;
+		}
+
+.forget{
+	margin-top: 10px;
+	text-align: center;
+}
+
+.forget a{
+	text-decoration: none;
+	color: rgb(100 144 233);
+}
+
+
+.maincontent2{
+	width: 40%;
+	margin: 0 auto;
+	margin-top: 20vh;
+
+}
+
+.logoutbtn{
+	display: inline-block;
+    padding: 4px;
+	float: right;
+	color: white;
+	background-color: steelblue;
+	border: none;
+	
+}
+
+#maincontent{
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.task_name{
+	background-color: blueviolet;
+	padding: 3px;
+	border-radius: 11px;
+	text-align: center;
+}
+
+#delete_task{
+	background-color: red;
+	padding: 2px;
+	color: white;
+	border: none;
+	float: right;
+	margin-right: 10px;
+}
+
+#bottom_div{
+	background-color: #eee;
+	text-align: center;
+	width: 100%;
+	
+}
+
+
+#task_content{
+    text-align: center;
+    width: 100%;
+    background-color: white;
+    padding: 10px 0;
+   	height: 70vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+
+}
+
+#task_action{
+	padding: 10px;
+}
+
+
+
+
+/*mobile*/
+
+@media only screen and (max-width: 450px){
+	#maincontent{
+		width: 100%;
+	}
+}

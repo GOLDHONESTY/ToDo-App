@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block body %}
+<body>
+	<div class="maincontent2">
+		<div class="divform">
+			<h1>Register</h1>
+			<hr>
+			{% for message in messages %}
+				<p style="color: red;">{{ message }}</p>
+			{% endfor %}
+
+			
+			<form action="signup" method="post">
+				{% csrf_token %}
+				<input class="signup_input" type="text" name="username" placeholder="Create a username"><br>
+				<input class="signup_input" type="email" name="email" placeholder="Enter your@email.com"><br>
+				<input class="signup_input" type="password" name="password" placeholder="Enter your password"><br>
+				<input class="signup_input" type="password" name="password2" placeholder="confirm password"><br>
+				<input class="submitform" type="submit" value="Register">
+			</form>
+			<div class="forget">
+				<p style="margin-bottom: 3px;">Have an account? <a href="{% url 'login' %}">Login Here</a></p>
+				<p>Forgot Password? <a href="#">Reset</a></p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

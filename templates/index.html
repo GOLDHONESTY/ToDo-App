@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+{% block body %}
+	<div id="maincontent">
+		{% if user.is_authenticated %}
+		<h1 style="display: inline-block;">{{ user.username|upper }} ToDo LIST</h1> <a href="{% url 'logout' %}"><button class="logoutbtn">Logout</button></a>
+		{% else %}
+		<h1>MY ToDo LIST</h1>
+		{% endif %}
+
+		<div id="bottom_div">
+			<div id="task_action">
+				<div style="float: left; margin-bottom: 10px;">
+					{% if todo_items %}
+					<span class="task_name"><p class="task_count">Tasks</p><p class="task_number">{{ todo_numb }}</p></span>
+						{% if numoftrue %}
+						<span class="task_name" style="background-color: #4cd861;"><p class="task_count">Tasks Done</p><p class="task_number">{{ numoftrue }}</p></span>
+						{% else %}
+						<span class="task_name"><p class="task_count">Tasks Done</p><p class="task_number">{{ numoftrue }}</p></span>
+						{% endif %}
+						{% if remaining == 0 %}
+						<span class="task_name" style="background-color: #4cd861;"><p class="task_count">Tasks remaning</p><p class="task_number">{{ remaining }}</p></span>
+						{% else %}
+						<span class="task_name"><p class="task_count">Tasks remaning</p><p class="task_number">{{ remaining }}</p></span>
+						{% endif %}
+					{% else %}
+					<span class="task_name"><p class="task_count">Tasks</p><p class="task_number">0</p></span>
+					<span class="task_name"><p class="task_count">Tasks Done</p><p class="task_number">0</p></span>
+					{% endif %}
+				</div>
+
+				{% if user.is_authenticated %}
+					<a href="{% url 'deleteall' %}"><button id="delete_task"><i class="fa-sharp fa-solid fa-trash" style="color: #f0f2f5; margin: 0 5px;"></i>Delete ALL</button></a>
+				{% else %}
+					
+				{% endif %}
+
+			</div>
+			<div id="task_content">
+
+				{% if todo_items %}
+				{% for todo_item in todo_items %}
+				<a href="{% url 'update' todo_item.id %}" style="text-decoration: none; color: black;" >
+					<div class="task_item_div" style="{% if todo_item.status == True %}background-color: #4bd55f5e;{% endif %}">
+						{% if todo_item.status == True %}
+						<i class="fa-sharp fa-solid fa-circle-check" style="color: #4cd861;"></i>
+						{% else %}
+						<i class="fa-sharp fa-solid fa-circle-check" style="color: #eee;"></i>
+						{% endif %}
+						<p class="task_item">{{ todo_item.item }}</p>
+						<a href="{% url 'delete' todo_item.id %}"><i class="fa-solid fa-xmark" style="color: #dd4040; float: right;"></i></a>
+					</div>
+				</a>
+				{% endfor %}
+				{% else %}
+				<div class="task_item_div">
+					<i class="fa-sharp fa-solid fa-circle-check" style="color: #eee;"></i>
+					<p class="task_item">No list found</p>
+					<i class="fa-solid fa-xmark" style="color: #dd4040; float: right;"></i>
+				</div>
+				{% endif %}
+
+			</div>
+			<div class="input_div">
+				<form method="post">
+					{% csrf_token %}
+					<input class="task_input"type="text" name="task_item"><input class="task_submit" type="submit" value="Add">
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+{% endblock %}
